@@ -22,4 +22,17 @@ class TableConstants:
 
 
 class SQLConstants:
-    SELECT_FROM_CLAIMS_CORE_SKILL_BUCKET = f"SELECT {GeneralConstants.ID}, {GeneralConstants.NAME}, {GeneralConstants.CATEGORY}, {GeneralConstants.DESCRIPTION} FROM {SchemaConstants.CLAIMS_CORE_SCHEMA}.{TableConstants.SKILL_BUCKET_TABLE};"
+    # ── READ ───────────────────────────────────────────────────────────
+    SELECT_FROM_CLAIMS_CORE_SKILL_BUCKET = (
+        f"SELECT {GeneralConstants.ID}, {GeneralConstants.NAME}, "
+        f"{GeneralConstants.CATEGORY}, {GeneralConstants.DESCRIPTION} "
+        f"FROM {SchemaConstants.CLAIMS_CORE_SCHEMA}.{TableConstants.SKILL_BUCKET_TABLE};"
+    )
+
+    # ── WRITE ──────────────────────────────────────────────────────────
+    INSERT_INTO_CLAIMS_CORE_SKILL_BUCKET = (
+        f"INSERT INTO {SchemaConstants.CLAIMS_CORE_SCHEMA}.{TableConstants.SKILL_BUCKET_TABLE} "
+        f"({GeneralConstants.NAME}, {GeneralConstants.CATEGORY}, {GeneralConstants.DESCRIPTION}) "
+        f"VALUES (%s, %s, %s) "
+        f"RETURNING {GeneralConstants.ID};"
+    )
