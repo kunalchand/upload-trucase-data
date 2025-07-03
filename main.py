@@ -11,8 +11,8 @@ def main():
     db = DatabaseConnection()
     conn = db.connect()
     try:
-        repo = SkillBucketRepository(conn)
-        skill_buckets = repo.fetch_all()
+        skill_bucket_repo = SkillBucketRepository(conn)
+        skill_buckets = skill_bucket_repo.fetch_all()
         display_skill_buckets(skill_buckets)
     finally:
         db.close()
