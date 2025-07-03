@@ -36,3 +36,8 @@ class SQLConstants:
         f"VALUES (%s, %s, %s) "
         f"RETURNING {GeneralConstants.ID};"
     )
+
+
+class DataConstants:
+    DATA = "data"
+    SKILL_BUCKET_DATA_JSON = "skill_bucket_data.json"
