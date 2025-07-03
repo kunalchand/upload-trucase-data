@@ -8,6 +8,6 @@ class SkillBucketRepository:
 
     def fetch_all(self):
         cursor = self.connection.cursor()
-        cursor.execute(SQLConstants.SELECT_FROM_SKILL_BUCKET)
+        cursor.execute(SQLConstants.SELECT_FROM_CLAIMS_CORE_SKILL_BUCKET)
         rows = cursor.fetchall()
         return [SkillBucketModel(*row) for row in rows]
