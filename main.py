@@ -1,4 +1,4 @@
-from db_config import DatabaseConnection
+from config.db_config import DatabaseConnection
 from repository.skill_bucket_repository import SkillBucketRepository
 
 
@@ -11,7 +11,7 @@ def main():
     db = DatabaseConnection()
     conn = db.connect()
     try:
-        repo = UserRepository(conn)
+        repo = SkillBucketRepository(conn)
         skill_buckets = repo.fetch_all()
         display_skill_buckets(skill_buckets)
     finally:
